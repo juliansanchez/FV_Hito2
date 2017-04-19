@@ -11,10 +11,8 @@
  * Created on 25 de marzo de 2017, 11:47
  */
 #include "Bala.h"
-
 #include <stdio.h>
 #include <iostream>
-
 
 
 Bala::Bala(int x,int y,int velx, int vely, float rangoDisparo) {
@@ -43,7 +41,11 @@ Bala::Bala(int x,int y,int velx, int vely, float rangoDisparo) {
 
 Bala::~Bala() {}
 
-void Bala::setPosicion(int x, int y){     }
+void Bala::setPosicion(int x, int y){  
+    this->posx=x;
+    this->posy=y;    
+}
+
 void Bala::colisionar(){       }
 
 void Bala::actualiza(){
@@ -55,8 +57,6 @@ void Bala::actualiza(){
     }
     else
         destruirBala = true;
-        
-    
 }
 int Bala::getX(){
     return posx;

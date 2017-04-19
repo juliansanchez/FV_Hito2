@@ -10,24 +10,27 @@
 #include <iostream>
 #include "Bala.h"
 #include <vector>
+#include <config.h>
+
 // Sprite speed (high values = high speed)
 #define SPRITE_SPEED  2
 using namespace std;
-// control direccion de disparo
-enum{
+/*// control direccion de disparo
+enum direccionDisparo{
     Arriba = 0,
     Abajo  = 1,
     Izda = 2,
     Decha = 3,
-};
+};*/
 
 int main()
 {
     
     // variable para animar los FRAMES de piernas
-    int contadorPasos = 0;
-    int altoPantalla = 540;
+    int contadorPasos = 0; // a la bala
+    
     int anchoPantalla = 900;
+    int altoPantalla = 540;
     
     // ::: VENTANA PRINCIPAL :::
     sf::RenderWindow window(sf::VideoMode(anchoPantalla, altoPantalla), "Hito 1: animacion personaje");
@@ -51,8 +54,8 @@ int main()
     int y=window.getSize().y/2;
     
     // vector de balas 
-    std::vector<Bala*> balas;
-    // velocidad de bala
+    std::vector<Bala*> balas; // se capa en el nivel
+    // velocidad de bala, se almacena en el nivel
     int velx = 0;
     int vely = 0;
     // distancia a la dispara 
@@ -62,17 +65,18 @@ int main()
     int dispara = 0;
     // control direccion de disparo
     int direccionDisparo=Decha;
-    
+   
         
     // variable tamaño sprites personaje
     int tamCabeza = 32;
     int radioCabeza = tamCabeza/2;
     int tamPiernas = 32;
     int radioPiernas = tamPiernas/2; 
-    int ajustePierna = 12;
+    
     // para cambiar el tamaño de los sprites
     float escalCab = 1;
     float escalPie = 1;
+    int ajustePierna = 12; // ajustar cuerpo a piernas
         
     
     //SPRITE JUGADOR   
@@ -108,7 +112,7 @@ int main()
     // ::: INICIO LOOP :::
     while (window.isOpen())
     {
-        // considicion
+        // conidicion
         if(dispara !=0 ){
             int velx = 0;
             int vely = 0;
