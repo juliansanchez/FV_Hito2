@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=texturaPersonaje
+PROJECTNAME=Hito2-Personaje
 
 # Active Configuration
 DEFAULTCONF=Debug

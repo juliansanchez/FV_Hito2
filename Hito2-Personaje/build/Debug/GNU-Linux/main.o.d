@@ -1,3 +1,7 @@
-build/Debug/GNU-Linux/main.o: main.cpp Bala.h
+build/Debug/GNU-Linux/main.o: main.cpp Bala.h Motor2D.h config.h
 
 Bala.h:
+
+Motor2D.h:
+
+config.h:

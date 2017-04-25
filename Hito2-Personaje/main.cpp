@@ -9,26 +9,20 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Bala.h"
+#include "Motor2D.h"
 #include <vector>
+#include <config.h>
 // Sprite speed (high values = high speed)
 #define SPRITE_SPEED  2
 using namespace std;
-// control direccion de disparo
-enum{
-    Arriba = 0,
-    Abajo  = 1,
-    Izda = 2,
-    Decha = 3,
-};
+
 
 int main()
 {
     
     // variable para animar los FRAMES de piernas
     int contadorPasos = 0;
-    int altoPantalla = 540;
-    int anchoPantalla = 900;
-    
+        
     // ::: VENTANA PRINCIPAL :::
     sf::RenderWindow window(sf::VideoMode(anchoPantalla, altoPantalla), "Hito 1: animacion personaje");
     // Enable vertical sync. (vsync)
@@ -37,6 +31,11 @@ int main()
     // When a key is pressed, sf::Event::KeyPressed will be true only once
     window.setKeyRepeatEnabled(false);
 
+    Motor2D*motor2D = Motor2D::Instance();
+    motor2D->setWindow(&window);
+    
+    
+    
     // ::: Creamos y cargamos las texturas :::
     sf::Texture texture;
     
@@ -55,9 +54,9 @@ int main()
     // velocidad de bala
     int velx = 0;
     int vely = 0;
+    
     // distancia a la dispara 
     float rangoDisparo = 1.5;  
-    
     // centinela para conocer direccion de disparo
     int dispara = 0;
     // control direccion de disparo
