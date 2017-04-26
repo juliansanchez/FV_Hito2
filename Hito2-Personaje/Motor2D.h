@@ -19,8 +19,9 @@ class Motor2D {
 public:
     static Motor2D *Instance();
     void setWindow(sf::RenderWindow *ventana);
-    void verWindow();
-
+    void pintarVentana();
+    void pintarSprites(sf::Sprite sprite);
+    void limpiarVentana();
 private:
     Motor2D(); // para arrays de objetos, sin parametros
     Motor2D(const Motor2D& orig); // cons q hace copia de clase motor2D

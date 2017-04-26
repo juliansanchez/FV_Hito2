@@ -25,18 +25,28 @@ Motor2D* Motor2D::Instance(){
     
     if(instanciaMotor == 0){
         instanciaMotor = new Motor2D;
+        
     }
+   
     return instanciaMotor;
 }
 void Motor2D::setWindow(sf::RenderWindow *ventana){
     this->ventana = ventana;
     
+    
 }
 
-
-void Motor2D::verWindow(){
-    ventana->clear( sf::Color(127,127,127));
+void Motor2D::pintarVentana(){
+    
     ventana->display();
 }
 
+void Motor2D::pintarSprites(sf::Sprite sprite){
+    
+    ventana->draw(sprite);    
+}
+
+void Motor2D::limpiarVentana(){
+    ventana->clear(sf::Color(0,127,127));
+}
 

@@ -38,9 +38,8 @@ int main()
     Motor2D*motor2D = Motor2D::Instance();
     // fijamos la ventana de juego
     motor2D->setWindow(&window);
-    motor2D->verWindow();
     
-    /*
+    
     
     // ::: Creamos y cargamos las texturas :::
     sf::Texture texture;
@@ -335,9 +334,7 @@ int main()
             }
         }
         
-        // Limpiamos la ventana y aplicamos un color de fondo 
-        window.clear( sf::Color(127,127,127));
-
+        
         // Fijamos las posiciones de los sprites
         cabeza.setPosition(x,y);
         piernas.setPosition(x,y+(ajustePierna)*escalPie); // valor para ajustar cuerpo a cabeza
@@ -348,14 +345,15 @@ int main()
                 window.draw(*balas.at(i));
             }
         }
-        window.draw(piernas);
-
-        window.draw(cabeza);
-    
+        
+       motor2D->limpiarVentana();
+       
+       motor2D->pintarSprites(piernas);
+       motor2D->pintarSprites(cabeza);
         // Actualizar mostrar por pantalla
-        window.display();
+       motor2D->pintarVentana();
       
-    }*/
+    }
     
     // Limpiamos la ventana y aplicamos un color de fondo 
     
