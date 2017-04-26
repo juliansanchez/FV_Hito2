@@ -334,7 +334,8 @@ int main()
             }
         }
         
-        
+        // LIMPIAR VENTANA
+        motor2D->limpiarVentana();
         // Fijamos las posiciones de los sprites
         cabeza.setPosition(x,y);
         piernas.setPosition(x,y+(ajustePierna)*escalPie); // valor para ajustar cuerpo a cabeza
@@ -346,7 +347,7 @@ int main()
             }
         }
         
-       motor2D->limpiarVentana();
+       
        
        motor2D->pintarSprites(piernas);
        motor2D->pintarSprites(cabeza);
