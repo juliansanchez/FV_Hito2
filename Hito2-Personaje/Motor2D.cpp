@@ -30,6 +30,13 @@ Motor2D* Motor2D::Instance(){
 }
 void Motor2D::setWindow(sf::RenderWindow *ventana){
     this->ventana = ventana;
+    
+}
+
+
+void Motor2D::verWindow(){
+    ventana->clear( sf::Color(127,127,127));
+    ventana->display();
 }
 
 

@@ -18,13 +18,9 @@ using namespace std;
 
 
 int main()
-{
-    
-    // variable para animar los FRAMES de piernas
-    int contadorPasos = 0;
+{  
         
     // ::: VENTANA PRINCIPAL :::
-    
     /* Por recomendacion, conviene crear el objeto en SFML
      y acceder a su posicion de memoria a través de la clase
      motor 2D, creando una única instancia de ella
@@ -37,11 +33,12 @@ int main()
     // When a key is pressed, sf::Event::KeyPressed will be true only once
     window.setKeyRepeatEnabled(false);
 
+    
     // creamos el obj Motor2D para crear ventana de juego
     Motor2D*motor2D = Motor2D::Instance();
-    // mostramos la ventana de juego
+    // fijamos la ventana de juego
     motor2D->setWindow(&window);
-   
+    motor2D->verWindow();
     
     /*
     
@@ -81,6 +78,9 @@ int main()
     // para cambiar el tamaño de los sprites
     float escalCab = 1;
     float escalPie = 1;
+     
+    // variable para animar los FRAMES de piernas
+    int contadorPasos = 0;
         
     
     //SPRITE JUGADOR   
@@ -356,5 +356,11 @@ int main()
         window.display();
       
     }*/
+    
+    // Limpiamos la ventana y aplicamos un color de fondo 
+    
+    
+   
+    
     return 0;
 }

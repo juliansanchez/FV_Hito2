@@ -19,6 +19,7 @@ class Motor2D {
 public:
     static Motor2D *Instance();
     void setWindow(sf::RenderWindow *ventana);
+    void verWindow();
 
 private:
     Motor2D(); // para arrays de objetos, sin parametros
