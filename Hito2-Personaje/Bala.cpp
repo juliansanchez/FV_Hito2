@@ -11,7 +11,6 @@
  * Created on 25 de marzo de 2017, 11:47
  */
 #include "Bala.h"
-
 #include <stdio.h>
 #include <iostream>
 
