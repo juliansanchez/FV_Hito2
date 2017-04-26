@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=texturapersonaje
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/texturapersonaje
+CND_ARTIFACT_NAME_Debug=hito2-personaje
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/hito2-personaje
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=texturapersonaje.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/texturapersonaje.tar
+CND_PACKAGE_NAME_Debug=hito2-personaje.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/hito2-personaje.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
-CND_ARTIFACT_NAME_Release=texturapersonaje
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/texturapersonaje
+CND_ARTIFACT_NAME_Release=hito2-personaje
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/hito2-personaje
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
-CND_PACKAGE_NAME_Release=texturapersonaje.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/texturapersonaje.tar
+CND_PACKAGE_NAME_Release=hito2-personaje.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/hito2-personaje.tar
 #
 # include compiler specific variables
 #
