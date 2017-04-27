@@ -39,11 +39,9 @@ int main()
     // fijamos la ventana de juego
     motor2D->setWindow(&window);
     
-    
-    
+
     // ::: Creamos y cargamos las texturas :::
     sf::Texture texture;
-    
     if (!texture.loadFromFile("resources/isaacAzul.png"))
     {
         std::cerr << "Error while loading texture ISAAC" << std::endl;
@@ -51,8 +49,8 @@ int main()
     }
     
     // variables de posicion XY
-    int x=window.getSize().x/2;
-    int y=window.getSize().y/2;
+    int x = window.getSize().x/2;
+    int y = window.getSize().y/2;
     
     // vector de balas 
     std::vector<Bala*> balas;
@@ -307,7 +305,7 @@ int main()
             }
         }
 
-        // Actalizamos coordenadas
+        // Actualizamos coordenadas
         if (leftFlag) x-=SPRITE_SPEED;
         if (rightFlag) x+=SPRITE_SPEED;
         if (upFlag) y-=SPRITE_SPEED;
@@ -346,20 +344,13 @@ int main()
                 window.draw(*balas.at(i));
             }
         }
-        
-       
-       
+
        motor2D->pintarSprites(piernas);
        motor2D->pintarSprites(cabeza);
         // Actualizar mostrar por pantalla
        motor2D->pintarVentana();
       
     }
-    
-    // Limpiamos la ventana y aplicamos un color de fondo 
-    
-    
-   
     
     return 0;
 }
