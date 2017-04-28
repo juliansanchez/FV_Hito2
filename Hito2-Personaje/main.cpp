@@ -66,7 +66,7 @@ int main()
     reloj.restart();
     relojSprite.restart();
 
-    
+       
     // ::: INICIO LOOP :::
     while (window.isOpen())
     {
@@ -234,8 +234,8 @@ int main()
         
        
        
-       motor2D->pintarSprites(piernas);
-       motor2D->pintarSprites(cabeza);
+       //motor2D->pintarSprites(piernas);
+       //motor2D->pintarSprites(cabeza);
         // Actualizar mostrar por pantalla
        motor2D->pintarVentana();
       

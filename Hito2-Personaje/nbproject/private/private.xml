@@ -9,8 +9,11 @@
         <group>
             <file>file:/home/juli/FV_Hito2/Hito2-Personaje/Motor2D.h</file>
             <file>file:/home/juli/FV_Hito2/Hito2-Personaje/Motor2D.cpp</file>
+            <file>file:/home/juli/FV_Hito2/Hito2-Personaje/Jugador.h</file>
             <file>file:/home/juli/FV_Hito2/Hito2-Personaje/Bala.cpp</file>
             <file>file:/home/juli/FV_Hito2/Hito2-Personaje/main.cpp</file>
+            <file>file:/home/juli/FV_Hito2/Hito2-Personaje/Jugador.cpp</file>
+            <file>file:/home/juli/FV_Hito2/Hito2-Personaje/Bala.h</file>
         </group>
     </open-files>
 </project-private>
