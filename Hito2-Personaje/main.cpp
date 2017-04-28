@@ -41,7 +41,7 @@ int main()
     // fijamos la ventana de juego
     motor2D->setWindow(&window);
     
-    
+  
     // variables de posicion XY
     int x=window.getSize().x/2;
     int y=window.getSize().y/2;
