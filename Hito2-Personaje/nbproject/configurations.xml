@@ -57,6 +57,11 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="../../Descargas/FV_Hito2-claseJugador/Hito2-Personaje/Jugador.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="Bala.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Bala.h" ex="false" tool="3" flavor2="0">
@@ -90,6 +95,11 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="../../Descargas/FV_Hito2-claseJugador/Hito2-Personaje/Jugador.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="Bala.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Bala.h" ex="false" tool="3" flavor2="0">
