@@ -108,22 +108,8 @@ int main()
         }
 
 
-        // Actalizamos coordenadas
-
-
-        // Controlar colisión con paredes
-        /* if (x<0) 
-            x=radioCabeza;
-        if (x>(int)window.getSize().x) 
-            x=window.getSize().x-radioCabeza;
-        if (y<0) 
-            y=radioCabeza;
-        if (y>(int)window.getSize().y) 
-            y=window.getSize().y-radioCabeza; */
-
-
         
-        player->mover(relojSprite);
+       player->mover(relojSprite);
        player->disparar(reloj);
         // Actualizar mostrar por pantalla
        motor2D->pintarVentana();

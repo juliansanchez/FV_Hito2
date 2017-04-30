@@ -51,6 +51,7 @@ void Bala::actualiza(){
 
     if(clock.getElapsedTime().asSeconds()< rangoDisparo){
         sprite.setPosition(posx,posy);
+        
     }
     else
         destruirBala = true;

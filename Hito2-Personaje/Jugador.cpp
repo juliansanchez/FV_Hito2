@@ -23,8 +23,8 @@ Jugador::Jugador(int x, int y) {
     radioPiernas = tamPiernas/2; 
     ajustePierna = 12;
     // para cambiar el tamaño de los sprites
-    escalCab = 1;
-    escalPie = 1;
+    escalCab = 1.5;
+    escalPie = 1.5;
      
     // variable para animar los FRAMES de piernas
     contadorPasos = 0;
@@ -173,23 +173,24 @@ void Jugador::disparar(sf::Clock reloj){
             else if(rightFlag) velx = 3;
             if (upFlag) vely = -3;
             else if(downFlag) vely = 3;
+            
             // comprobamos direccion de disparo y cargamos posicion de textura
             switch (direccionDisparo){
                 case Arriba:
-                    cout<<"Arriba"<<endl;
                     cabeza.setTextureRect(sf::IntRect(5*tamCabeza, 0*tamCabeza, tamCabeza, tamCabeza));
                     // separacion entre bolas en el disparo
                     if(reloj.getElapsedTime().asSeconds() > 0.3){
                         // creamos una nueva bala y la metemos en el vector
-                        balas.push_back(new Bala(x,y,velx,-3,rangoDisparo));
+                        balas.push_back(new Bala(x,y-35,velx,-3,rangoDisparo));
                         reloj.restart();
+                        
                     }
                 break;
                 
                 case Abajo:
                     cabeza.setTextureRect(sf::IntRect(1*tamCabeza, 0*tamCabeza, tamCabeza, tamCabeza));
                     if(reloj.getElapsedTime().asSeconds() > 0.3){
-                        balas.push_back(new Bala(x,y,velx,3,rangoDisparo));
+                        balas.push_back(new Bala(x,y+55,velx,3,rangoDisparo));
                         reloj.restart();
                     }
                 break;
@@ -197,7 +198,7 @@ void Jugador::disparar(sf::Clock reloj){
                     cabeza.setTextureRect(sf::IntRect(2*tamCabeza, 0*tamCabeza, tamCabeza, tamCabeza)); 
                     cabeza.setScale(escalCab,escalCab);
                     if(reloj.getElapsedTime().asSeconds() > 0.3){
-                        balas.push_back(new Bala(x,y,3,vely,rangoDisparo));
+                        balas.push_back(new Bala(x+35,y,3,vely,rangoDisparo));
                         reloj.restart();
                     }
                 break;
@@ -206,16 +207,12 @@ void Jugador::disparar(sf::Clock reloj){
                     //Reflejo vertical
                     cabeza.setScale(-escalCab,escalCab);
                     if(reloj.getElapsedTime().asSeconds() > 0.3){
-                        balas.push_back(new Bala(x,y,-3,vely,rangoDisparo));
+                        balas.push_back(new Bala(x-35,y,-3,vely,rangoDisparo));
                         reloj.restart();
                     }
                 break;
             }
-        }else{// posicion de las texturas Personaje segun movimiento
-            
-        
-            
-    }
+        }
     
     // actualizo posicion de la bala
         for(int i = 0 ; i<balas.size(); i++){
