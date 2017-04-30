@@ -134,7 +134,6 @@ void Jugador::actualizarSprite(){
 
 void Jugador::pintar(){
     Motor2D*motor2D = Motor2D::Instance();
-    
     motor2D->pintarSprites(piernas);
     motor2D->pintarSprites(cabeza);
 }
@@ -164,6 +163,7 @@ void Jugador::mover(sf::Clock relojSprite){
 }
 
 void Jugador::disparar(sf::Clock reloj){
+ 
     if(dispara !=0 ){
             int velx = 0;
             int vely = 0;
@@ -180,16 +180,15 @@ void Jugador::disparar(sf::Clock reloj){
                     // separacion entre bolas en el disparo
                     if(reloj.getElapsedTime().asSeconds() > 0.3){
                         // creamos una nueva bala y la metemos en el vector
-                        balas.push_back(new Bala(x,y-35,velx,-3,rangoDisparo));
-                        reloj.restart();
-                        
+                        balas.push_back(new Bala(x,y-30,velx,-3,rangoDisparo));
+                        reloj.restart(); 
                     }
                 break;
                 
                 case Abajo:
                     cabeza.setTextureRect(sf::IntRect(1*tamSprite, 0*tamSprite, tamSprite, tamSprite));
                     if(reloj.getElapsedTime().asSeconds() > 0.3){
-                        balas.push_back(new Bala(x,y+55,velx,3,rangoDisparo));
+                        balas.push_back(new Bala(x,y+50,velx,3,rangoDisparo));
                         reloj.restart();
                     }
                 break;
@@ -227,12 +226,14 @@ void Jugador::disparar(sf::Clock reloj){
     Motor2D*motor2D = Motor2D::Instance();
         for(int i = 0 ; i<balas.size(); i++){
             if(balas.at(i)){
-                
                 motor2D->pintarSprites(balas.at(i)->getSprite());
                 
             }
+            
         }
+    
     pintar();
+    
     }
 
 void Jugador::setDirDisparo(int e){

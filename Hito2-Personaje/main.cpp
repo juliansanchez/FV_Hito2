@@ -37,7 +37,6 @@ int main()
     Motor2D*motor2D = Motor2D::Instance();
     // fijamos la ventana de juego
     motor2D->setWindow(&window);
-    
 
     // variables de posicion XY
     int x = window.getSize().x/2;
@@ -102,13 +101,10 @@ int main()
                     case sf::Keyboard::Right: player->decrementarBala(); break;              
                 }
             }
-
-            // posicion NEUTRA PERSONAJE
             
         }
 
-
-        
+       // actualizamos posiciones de los sprites
        player->mover(relojSprite);
        player->disparar(reloj);
         // Actualizar mostrar por pantalla
