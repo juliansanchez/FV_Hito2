@@ -19,10 +19,8 @@ Jugador::Jugador(int x, int y) {
     // variable tamaño sprites personaje
     tamSprite = 32;
     radioSprite = tamSprite/2;
-   
-    ajustePierna = 12;
-    // para cambiar el tamaño de los sprites
-    escala = 1.5;
+    ajustePierna = 12; // telacion cabeza tronco
+    escala = 1.5; // para cambiar el tamaño de los sprites
      
     // variable para animar los FRAMES de piernas
     contadorPasos = 0;
@@ -76,6 +74,7 @@ void Jugador::crearbala(){
     dispara = 0;
     // control direccion de disparo
     direccionDisparo=Decha;
+    
 }
 
 Jugador::Jugador(const Jugador& orig) {
@@ -163,7 +162,7 @@ void Jugador::mover(sf::Clock relojSprite){
 }
 
 void Jugador::disparar(sf::Clock reloj){
- 
+
     if(dispara !=0 ){
             int velx = 0;
             int vely = 0;
@@ -175,13 +174,18 @@ void Jugador::disparar(sf::Clock reloj){
             
             // comprobamos direccion de disparo y cargamos posicion de textura
             switch (direccionDisparo){
+                
                 case Arriba:
+
                     cabeza.setTextureRect(sf::IntRect(5*tamSprite, 0*tamSprite, tamSprite, tamSprite));
                     // separacion entre bolas en el disparo
-                    if(reloj.getElapsedTime().asSeconds() > 0.3){
+                    if(reloj.getElapsedTime().asSeconds() > 5){
+                        cout<<"antes : "<<reloj.getElapsedTime().asSeconds()<<endl;
                         // creamos una nueva bala y la metemos en el vector
                         balas.push_back(new Bala(x,y-30,velx,-3,rangoDisparo));
-                        reloj.restart(); 
+                        //reloj.restart(); 
+                        cout<<"reinicio : "<<reloj.getElapsedTime().asSeconds()<<endl;
+                        
                     }
                 break;
                 
@@ -222,12 +226,15 @@ void Jugador::disparar(sf::Clock reloj){
                 }        
             }
         }
+   
+    
     // pintamos las balas
     Motor2D*motor2D = Motor2D::Instance();
+    reloj.restart();
         for(int i = 0 ; i<balas.size(); i++){
             if(balas.at(i)){
-                motor2D->pintarSprites(balas.at(i)->getSprite());
-                
+ 
+                motor2D->pintarSprites(balas.at(i)->getSprite());  
             }
             
         }

@@ -15,7 +15,7 @@
 #define BALA_H
 #include <SFML/Graphics.hpp>
 
-class Bala:public sf::Drawable {
+class Bala {
 public:
     Bala(int x,int y,int velx, int vely, float rangoDisparo);
     Bala(const Bala& orig);
@@ -31,7 +31,7 @@ public:
     
         
 private:
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states)const;
+    
     int posx;
     int posy;
     int velx;
