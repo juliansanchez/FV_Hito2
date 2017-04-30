@@ -27,6 +27,7 @@ public:
     int getX();
     int getY();
     bool destruirBala = false;
+    sf::Sprite getSprite();
     
         
 private:

@@ -66,3 +66,7 @@ int Bala::getY(){
 void Bala::draw(sf::RenderTarget& target, sf::RenderStates states)const{
     target.draw(sprite,states); 
 }
+
+sf::Sprite Bala::getSprite(){
+    return sprite;
+}

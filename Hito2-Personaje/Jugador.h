@@ -13,16 +13,33 @@
 #include <SFML/Graphics.hpp>
 
 #include "Motor2D.h"
+#include <iostream>
+#include "Bala.h"
+#include <vector>
 
 #ifndef JUGADOR_H
 #define JUGADOR_H
 
+enum dirccionDisparo{
+    Arriba = 0,
+    Abajo  = 1,
+    Izda = 2,
+    Decha = 3,
+};
+
 class Jugador {
 public:
-    Jugador();
+    Jugador(int x, int y);
     Jugador(const Jugador& orig);
     virtual ~Jugador();
-    void mover(sf::Keyboard tecla);
+    void mover(sf::Clock relojSprite);
+    void setFlagW(bool f);
+    void setFlagA(bool f);
+    void setFlagS(bool f);
+    void setFlagD(bool f);
+    void disparar(sf::Clock reloj);
+    void setDirDisparo(int e);
+    void decrementarBala();
     
 private:
     int tamCabeza;
@@ -30,16 +47,16 @@ private:
     int tamPiernas;
     int radioPiernas; 
     int ajustePierna;
+    int x; //POSX
+    int y;//POSY
     // para cambiar el tamaño de los sprites
     float escalCab;
     float escalPie;
     // variable para animar los FRAMES de piernas
     int contadorPasos;
+    sf::Sprite cabeza;
+    sf::Sprite piernas;
     sf::Texture texture;
-    
-     // variables de posicion XY
-    int x;
-    int y;
     
     // avisadores de tecla pulsada MOV Jugador
     bool upFlag;
@@ -49,8 +66,18 @@ private:
     
     // ATRIBUTOS
     float SPRITE_SPEED;
+    void animacioncaminar(sf::Clock relojSprite);
+    void actualizarSprite ();
+    void pintar();
+    void crearbala();
     
+    
+    std::vector<Bala*> balas;
+    int velx;
+    int vely;
+    float rangoDisparo;
+    int dispara;
+    int direccionDisparo;
 }; 
 
 #endif /* JUGADOR_H */
-
