@@ -41,6 +41,7 @@ public:
     void setDirDisparo(int e);
     void decrementarBala();
     
+    
 private:
     int tamCabeza;
     int radioCabeza;

@@ -124,9 +124,7 @@ int main()
 
         
         player->mover(relojSprite);
-        player->disparar(reloj);
-
-        // Fijamos las posiciones de los sprites 
+       player->disparar(reloj);
         // Actualizar mostrar por pantalla
        motor2D->pintarVentana();
       

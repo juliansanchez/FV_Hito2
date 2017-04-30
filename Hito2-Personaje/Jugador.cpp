@@ -13,6 +13,7 @@
 
 #include "Jugador.h"
 
+using namespace std;
 Jugador::Jugador(int x, int y) {
     
     // variable tamaño sprites personaje
@@ -62,6 +63,7 @@ Jugador::Jugador(int x, int y) {
     downFlag = false;
     leftFlag = false;
     rightFlag = false;
+    
     crearbala();
 }
 
@@ -159,7 +161,7 @@ void Jugador::mover(sf::Clock relojSprite){
 // Fijamos las posiciones de los sprites
     cabeza.setPosition(x,y);
     piernas.setPosition(x,y+(ajustePierna)*escalPie); // valor para ajustar cuerpo a cabeza
-    pintar();
+    
 }
 
 void Jugador::disparar(sf::Clock reloj){
@@ -174,6 +176,7 @@ void Jugador::disparar(sf::Clock reloj){
             // comprobamos direccion de disparo y cargamos posicion de textura
             switch (direccionDisparo){
                 case Arriba:
+                    cout<<"Arriba"<<endl;
                     cabeza.setTextureRect(sf::IntRect(5*tamCabeza, 0*tamCabeza, tamCabeza, tamCabeza));
                     // separacion entre bolas en el disparo
                     if(reloj.getElapsedTime().asSeconds() > 0.3){
@@ -210,14 +213,9 @@ void Jugador::disparar(sf::Clock reloj){
             }
         }else{// posicion de las texturas Personaje segun movimiento
             
+        
             
-            
-            
-            
-            
-                // posicion del personaje NEUTRA
-            
-        }
+    }
     
     // actualizo posicion de la bala
         for(int i = 0 ; i<balas.size(); i++){
@@ -234,9 +232,12 @@ void Jugador::disparar(sf::Clock reloj){
         for(int i = 0 ; i<balas.size(); i++){
             if(balas.at(i)){
                 motor2D->pintarSprites(balas.at(i)->getSprite());
+                
             }
         }
-}
+    pintar();
+    }
+
 void Jugador::setDirDisparo(int e){
     if (e==0) direccionDisparo = Arriba;
     else if (e==1) direccionDisparo = Abajo;
