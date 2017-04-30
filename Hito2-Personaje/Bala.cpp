@@ -54,7 +54,6 @@ void Bala::actualiza(){
     }
     else
         destruirBala = true;
-        
     
 }
 int Bala::getX(){
