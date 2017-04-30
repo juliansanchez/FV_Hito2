@@ -54,7 +54,6 @@ void Bala::actualiza(){
     }
     else
         destruirBala = true;
-        
     
 }
 int Bala::getX(){
@@ -66,4 +65,8 @@ int Bala::getY(){
 }
 void Bala::draw(sf::RenderTarget& target, sf::RenderStates states)const{
     target.draw(sprite,states); 
+}
+
+sf::Sprite Bala::getSprite(){
+    return sprite;
 }

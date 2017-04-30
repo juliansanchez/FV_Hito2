@@ -14,13 +14,6 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-// control direccion de disparo
-enum dirccionDisparo{
-    Arriba = 0,
-    Abajo  = 1,
-    Izda = 2,
-    Decha = 3,
-};
 // dimensiones de pantalla
 int altoPantalla = 540;
 int anchoPantalla = 900;

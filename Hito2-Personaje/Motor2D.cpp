@@ -12,7 +12,6 @@
  */
 
 #include "Motor2D.h"
-#include <SFML/Graphics.hpp>
 using namespace std;
 
 // declaramos instancia para el motor
@@ -25,7 +24,6 @@ Motor2D* Motor2D::Instance(){
     
     if(instanciaMotor == 0){
         instanciaMotor = new Motor2D;
-        
     }
    
     return instanciaMotor;
