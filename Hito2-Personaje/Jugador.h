@@ -37,7 +37,7 @@ public:
     void setFlagA(bool f);
     void setFlagS(bool f);
     void setFlagD(bool f);
-    void disparar(sf::Clock reloj);
+    void disparar();
     void setDirDisparo(int e);
     void decrementarBala();
     
@@ -69,6 +69,9 @@ private:
     void actualizarSprite ();
     void pintar();
     void crearbala();
+    // variable y metodo para controlar el tiempo de disparo
+    sf::Clock clock;
+    sf::Clock getReloj();
     
     
     std::vector<Bala*> balas;
