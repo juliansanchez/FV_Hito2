@@ -41,17 +41,16 @@ public:
     void setDirDisparo(int e);
     void decrementarBala();
     
+    
 private:
-    int tamCabeza;
-    int radioCabeza;
-    int tamPiernas;
-    int radioPiernas; 
+    int tamSprite;
+    int radioSprite;
+
     int ajustePierna;
     int x; //POSX
     int y;//POSY
     // para cambiar el tamaño de los sprites
-    float escalCab;
-    float escalPie;
+    float escala;
     // variable para animar los FRAMES de piernas
     int contadorPasos;
     sf::Sprite cabeza;

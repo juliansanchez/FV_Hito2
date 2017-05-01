@@ -13,17 +13,14 @@
 
 #include "Jugador.h"
 
+using namespace std;
 Jugador::Jugador(int x, int y) {
     
     // variable tamaño sprites personaje
-    tamCabeza = 32;
-    radioCabeza = tamCabeza/2;
-    tamPiernas = 32;
-    radioPiernas = tamPiernas/2; 
-    ajustePierna = 12;
-    // para cambiar el tamaño de los sprites
-    escalCab = 1;
-    escalPie = 1;
+    tamSprite = 32;
+    radioSprite = tamSprite/2;
+    ajustePierna = 12; // telacion cabeza tronco
+    escala = 1.5; // para cambiar el tamaño de los sprites
      
     // variable para animar los FRAMES de piernas
     contadorPasos = 0;
@@ -45,23 +42,24 @@ Jugador::Jugador(int x, int y) {
     piernas.setTexture(texture);
     
     //Le pongo el centroide donde corresponde
-    cabeza.setOrigin(tamCabeza/2,tamCabeza/2);
-    piernas.setOrigin(tamPiernas/2,tamPiernas/2);
+    cabeza.setOrigin(tamSprite/2,tamSprite/2);
+    piernas.setOrigin(tamSprite/2,tamSprite/2);
     //Cojo el sprite que me interesa por defecto del sheet
-    cabeza.setTextureRect(sf:: IntRect(0*tamCabeza, 0*tamCabeza, tamCabeza, tamCabeza));
-    piernas.setTextureRect(sf:: IntRect (0*tamPiernas, 1*tamPiernas, tamPiernas, tamPiernas));
+    cabeza.setTextureRect(sf:: IntRect(0*tamSprite, 0*tamSprite, tamSprite, tamSprite));
+    piernas.setTextureRect(sf:: IntRect (0*tamSprite, 1*tamSprite, tamSprite, tamSprite));
     // Lo dispongo en el centro de la pantalla
     cabeza.setPosition(x, y);
-    piernas.setPosition(x, y+radioPiernas);
+    piernas.setPosition(x, y+radioSprite);
     // tamaño de los esprites
-    cabeza.setScale(escalCab,escalCab);
-    piernas.setScale(escalPie,escalPie);
+    cabeza.setScale(escala,escala);
+    piernas.setScale(escala,escala);
     
     // avisadores de tecla pulsada MOV Jugador
     upFlag = false;
     downFlag = false;
     leftFlag = false;
     rightFlag = false;
+    
     crearbala();
 }
 
@@ -76,6 +74,7 @@ void Jugador::crearbala(){
     dispara = 0;
     // control direccion de disparo
     direccionDisparo=Decha;
+    
 }
 
 Jugador::Jugador(const Jugador& orig) {
@@ -90,20 +89,20 @@ void Jugador::animacioncaminar(sf::Clock relojSprite){
         if(contadorPasos == 8) {contadorPasos = 0;}       
         // control de la posicion 
         if(upFlag == true){
-            piernas.setTextureRect(sf::IntRect(contadorPasos*tamPiernas,1*tamPiernas, tamPiernas, tamPiernas));
-            piernas.setScale(-escalPie,escalPie);
+            piernas.setTextureRect(sf::IntRect(contadorPasos*tamSprite,1*tamSprite, tamSprite, tamSprite));
+            piernas.setScale(-escala,escala);
         }
         if(downFlag == true){
-            piernas.setTextureRect(sf::IntRect(contadorPasos*tamPiernas,1*tamPiernas, tamPiernas, tamPiernas));
-            piernas.setScale(escalPie,escalPie);
+            piernas.setTextureRect(sf::IntRect(contadorPasos*tamSprite,1*tamSprite, tamSprite, tamSprite));
+            piernas.setScale(escala,escala);
         }
         if(leftFlag==true){
-            piernas.setTextureRect(sf::IntRect(contadorPasos*tamPiernas,2*tamPiernas, tamPiernas, tamPiernas));
-            piernas.setScale(-escalPie,escalPie);
+            piernas.setTextureRect(sf::IntRect(contadorPasos*tamSprite,2*tamSprite, tamSprite, tamSprite));
+            piernas.setScale(-escala,escala);
         }
         if(rightFlag==true){
-            piernas.setTextureRect(sf::IntRect(contadorPasos*tamPiernas,2*tamPiernas, tamPiernas, tamPiernas));
-            piernas.setScale(escalPie,escalPie);
+            piernas.setTextureRect(sf::IntRect(contadorPasos*tamSprite,2*tamSprite, tamSprite, tamSprite));
+            piernas.setScale(escala,escala);
         }
         relojSprite.restart();
     }
@@ -111,31 +110,31 @@ void Jugador::animacioncaminar(sf::Clock relojSprite){
 
 void Jugador::actualizarSprite(){
      if(upFlag == true){
-        cabeza.setTextureRect(sf::IntRect(5*tamCabeza, 0*tamCabeza, tamCabeza, tamCabeza));
+        cabeza.setTextureRect(sf::IntRect(5*tamSprite, 0*tamSprite, tamSprite, tamSprite));
     }
     else if(downFlag == true){
-        cabeza.setTextureRect(sf::IntRect(1*tamCabeza, 0*tamCabeza, tamCabeza, tamCabeza));
+        cabeza.setTextureRect(sf::IntRect(1*tamSprite, 0*tamSprite, tamSprite, tamSprite));
     }
     else if(leftFlag==true){
-        cabeza.setTextureRect(sf::IntRect(2*tamCabeza, 0*tamCabeza, tamCabeza, tamCabeza));
+        cabeza.setTextureRect(sf::IntRect(2*tamSprite, 0*tamSprite, tamSprite, tamSprite));
         //Reflejo vertical
-        cabeza.setScale(-escalCab,escalCab);
+        cabeza.setScale(-escala,escala);
     }
     else if(rightFlag==true){
-        cabeza.setTextureRect(sf::IntRect(2*tamCabeza, 0*tamCabeza, tamCabeza, tamCabeza));
+        cabeza.setTextureRect(sf::IntRect(2*tamSprite, 0*tamSprite, tamSprite, tamSprite));
         //Escala por defecto
-        cabeza.setScale(escalCab,escalCab);                 
+        cabeza.setScale(escala,escala);                 
     }
     // posicion del personaje NEUTRA
     else{
-        cabeza.setTextureRect(sf::IntRect(0*tamCabeza, 0*tamCabeza, tamCabeza, tamCabeza)); 
+        cabeza.setTextureRect(sf::IntRect(0*tamSprite, 0*tamSprite, tamSprite, tamSprite)); 
     }
 }
 
 void Jugador::pintar(){
     Motor2D*motor2D = Motor2D::Instance();
-    motor2D->pintarSprites(cabeza);
     motor2D->pintarSprites(piernas);
+    motor2D->pintarSprites(cabeza);
 }
 
 void Jugador::mover(sf::Clock relojSprite){
@@ -144,10 +143,10 @@ void Jugador::mover(sf::Clock relojSprite){
     animacioncaminar (relojSprite);
 
     if(upFlag==false && downFlag==false && leftFlag==false && rightFlag==false){
-        cabeza.setTextureRect(sf::IntRect(0*tamCabeza, 0*tamCabeza, tamCabeza, tamCabeza));
-        piernas.setTextureRect(sf::IntRect(0*tamPiernas, 1*tamPiernas, tamPiernas, tamPiernas));
+        cabeza.setTextureRect(sf::IntRect(0*tamSprite, 0*tamSprite, tamSprite, tamSprite));
+        piernas.setTextureRect(sf::IntRect(0*tamSprite, 1*tamSprite, tamSprite, tamSprite));
         //Escala por defecto
-        cabeza.setScale(escalCab,escalCab);             
+        cabeza.setScale(escala,escala);             
     }
     
     if (leftFlag) x-=SPRITE_SPEED;
@@ -158,11 +157,12 @@ void Jugador::mover(sf::Clock relojSprite){
 
 // Fijamos las posiciones de los sprites
     cabeza.setPosition(x,y);
-    piernas.setPosition(x,y+(ajustePierna)*escalPie); // valor para ajustar cuerpo a cabeza
-    pintar();
+    piernas.setPosition(x,y+(ajustePierna)*escala); // valor para ajustar cuerpo a cabeza
+    
 }
 
 void Jugador::disparar(sf::Clock reloj){
+
     if(dispara !=0 ){
             int velx = 0;
             int vely = 0;
@@ -171,52 +171,49 @@ void Jugador::disparar(sf::Clock reloj){
             else if(rightFlag) velx = 3;
             if (upFlag) vely = -3;
             else if(downFlag) vely = 3;
+            
             // comprobamos direccion de disparo y cargamos posicion de textura
             switch (direccionDisparo){
+                
                 case Arriba:
-                    cabeza.setTextureRect(sf::IntRect(5*tamCabeza, 0*tamCabeza, tamCabeza, tamCabeza));
+
+                    cabeza.setTextureRect(sf::IntRect(5*tamSprite, 0*tamSprite, tamSprite, tamSprite));
                     // separacion entre bolas en el disparo
                     if(reloj.getElapsedTime().asSeconds() > 0.3){
+                        cout<<"antes : "<<reloj.getElapsedTime().asSeconds()<<endl;
                         // creamos una nueva bala y la metemos en el vector
-                        balas.push_back(new Bala(x,y,velx,-3,rangoDisparo));
-                        reloj.restart();
+                        balas.push_back(new Bala(x,y-30,velx,-3,rangoDisparo));
+                        //reloj.restart(); 
+                        cout<<"reinicio : "<<reloj.getElapsedTime().asSeconds()<<endl;
+                        
                     }
                 break;
                 
                 case Abajo:
-                    cabeza.setTextureRect(sf::IntRect(1*tamCabeza, 0*tamCabeza, tamCabeza, tamCabeza));
+                    cabeza.setTextureRect(sf::IntRect(1*tamSprite, 0*tamSprite, tamSprite, tamSprite));
                     if(reloj.getElapsedTime().asSeconds() > 0.3){
-                        balas.push_back(new Bala(x,y,velx,3,rangoDisparo));
+                        balas.push_back(new Bala(x,y+50,velx,3,rangoDisparo));
                         reloj.restart();
                     }
                 break;
                 case Decha:
-                    cabeza.setTextureRect(sf::IntRect(2*tamCabeza, 0*tamCabeza, tamCabeza, tamCabeza)); 
-                    cabeza.setScale(escalCab,escalCab);
+                    cabeza.setTextureRect(sf::IntRect(2*tamSprite, 0*tamSprite, tamSprite, tamSprite)); 
+                    cabeza.setScale(escala,escala);
                     if(reloj.getElapsedTime().asSeconds() > 0.3){
-                        balas.push_back(new Bala(x,y,3,vely,rangoDisparo));
+                        balas.push_back(new Bala(x+35,y,3,vely,rangoDisparo));
                         reloj.restart();
                     }
                 break;
                 case Izda:
-                    cabeza.setTextureRect(sf::IntRect(2*tamCabeza, 0*tamCabeza, tamCabeza, tamCabeza));
+                    cabeza.setTextureRect(sf::IntRect(2*tamSprite, 0*tamSprite, tamSprite, tamSprite));
                     //Reflejo vertical
-                    cabeza.setScale(-escalCab,escalCab);
+                    cabeza.setScale(-escala,escala);
                     if(reloj.getElapsedTime().asSeconds() > 0.3){
-                        balas.push_back(new Bala(x,y,-3,vely,rangoDisparo));
+                        balas.push_back(new Bala(x-35,y,-3,vely,rangoDisparo));
                         reloj.restart();
                     }
                 break;
             }
-        }else{// posicion de las texturas Personaje segun movimiento
-            
-            
-            
-            
-            
-            
-                // posicion del personaje NEUTRA
-            
         }
     
     // actualizo posicion de la bala
@@ -229,14 +226,23 @@ void Jugador::disparar(sf::Clock reloj){
                 }        
             }
         }
+   
+    
     // pintamos las balas
     Motor2D*motor2D = Motor2D::Instance();
+    reloj.restart();
         for(int i = 0 ; i<balas.size(); i++){
             if(balas.at(i)){
-                motor2D->pintarSprites(balas.at(i)->getSprite());
+ 
+                motor2D->pintarSprites(balas.at(i)->getSprite());  
             }
+            
         }
-}
+    
+    pintar();
+    
+    }
+
 void Jugador::setDirDisparo(int e){
     if (e==0) direccionDisparo = Arriba;
     else if (e==1) direccionDisparo = Abajo;

@@ -37,7 +37,6 @@ int main()
     Motor2D*motor2D = Motor2D::Instance();
     // fijamos la ventana de juego
     motor2D->setWindow(&window);
-    
 
     // variables de posicion XY
     int x = window.getSize().x/2;
@@ -102,31 +101,12 @@ int main()
                     case sf::Keyboard::Right: player->decrementarBala(); break;              
                 }
             }
-
-            // posicion NEUTRA PERSONAJE
             
         }
 
-
-        // Actalizamos coordenadas
-
-
-        // Controlar colisión con paredes
-        /* if (x<0) 
-            x=radioCabeza;
-        if (x>(int)window.getSize().x) 
-            x=window.getSize().x-radioCabeza;
-        if (y<0) 
-            y=radioCabeza;
-        if (y>(int)window.getSize().y) 
-            y=window.getSize().y-radioCabeza; */
-
-
-        
-        player->mover(relojSprite);
-        player->disparar(reloj);
-
-        // Fijamos las posiciones de los sprites 
+       // actualizamos posiciones de los sprites
+       player->mover(relojSprite);
+       player->disparar(reloj);
         // Actualizar mostrar por pantalla
        motor2D->pintarVentana();
       
