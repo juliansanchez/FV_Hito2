@@ -26,18 +26,21 @@ public:
     virtual ~Modificador();
     void Modificacion(Jugador* j);
     void pintar();
+    void colisionObjeto(Jugador *j);
     
 private:
     int tamSprite;
     int radioSprite;
     int x; //POSX
     int y;//POSY
+    bool colision;
     
     float escala;
     
     sf::Sprite modificador;
     sf::Texture texture;
-    //sf::Rect<float> hitbox;
+    sf::Rect<float> hitbox;
+
     
 };
 

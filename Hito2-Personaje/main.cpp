@@ -112,6 +112,9 @@ int main()
        player->mover(relojSprite);
        player->disparar();
        
+       seta->colisionObjeto(player);
+         
+       
         // Actualizar mostrar por pantalla
        motor2D->pintarVentana();
       

@@ -40,12 +40,15 @@ public:
     void disparar();
     void setDirDisparo(int e);
     void decrementarBala();
+    int getY();
+    int getX();
+    void aumentarVelocidad();
+    
     
     
 private:
     int tamSprite;
     int radioSprite;
-
     int ajustePierna;
     int x; //POSX
     int y;//POSY
@@ -65,13 +68,16 @@ private:
     
     // ATRIBUTOS
     float SPRITE_SPEED;
+    
     void animacioncaminar(sf::Clock relojSprite);
     void actualizarSprite ();
     void pintar();
     void crearbala();
+    
     // variable y metodo para controlar el tiempo de disparo
     sf::Clock clock;
     sf::Clock getReloj();
+    
     
     
     std::vector<Bala*> balas;

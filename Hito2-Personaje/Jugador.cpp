@@ -12,6 +12,7 @@
  */
 
 #include "Jugador.h"
+#include "Modificador.h"
 
 using namespace std;
 Jugador::Jugador(int x, int y) {
@@ -22,7 +23,7 @@ Jugador::Jugador(int x, int y) {
     radioSprite = tamSprite/2;
     ajustePierna = 12; // telacion cabeza tronco
     escala = 1.5; // para cambiar el tamaño de los sprites
-     
+    
     // variable para animar los FRAMES de piernas
     contadorPasos = 0;
     this->x= x;
@@ -159,6 +160,8 @@ void Jugador::mover(sf::Clock relojSprite){
     cabeza.setPosition(x,y);
     piernas.setPosition(x,y+(ajustePierna)*escala); // valor para ajustar cuerpo a cabeza
     
+ 
+    
 }
 
 void Jugador::disparar(){
@@ -259,3 +262,15 @@ void Jugador::setFlagS(bool f){downFlag = f;}
 
 
 sf::Clock Jugador::getReloj(){return clock;}
+
+int Jugador::getX(){
+    return x;
+}
+int Jugador::getY(){
+    return y;
+}
+
+// incrementa velocidad del jugador
+void Jugador:: aumentarVelocidad(){
+    SPRITE_SPEED = SPRITE_SPEED+2;
+}
