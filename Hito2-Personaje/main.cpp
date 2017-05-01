@@ -107,7 +107,7 @@ int main()
 
        // actualizamos posiciones de los sprites
        player->mover(relojSprite);
-       player->disparar(reloj);
+       player->disparar();
         // Actualizar mostrar por pantalla
        motor2D->pintarVentana();
       

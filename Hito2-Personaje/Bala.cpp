@@ -68,3 +68,4 @@ int Bala::getY(){
 sf::Sprite Bala::getSprite(){
     return sprite;
 }
+

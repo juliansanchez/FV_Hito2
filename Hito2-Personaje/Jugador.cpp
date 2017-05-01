@@ -16,6 +16,7 @@
 using namespace std;
 Jugador::Jugador(int x, int y) {
     
+    sf::Clock clock;
     // variable tamaño sprites personaje
     tamSprite = 32;
     radioSprite = tamSprite/2;
@@ -74,7 +75,6 @@ void Jugador::crearbala(){
     dispara = 0;
     // control direccion de disparo
     direccionDisparo=Decha;
-    
 }
 
 Jugador::Jugador(const Jugador& orig) {
@@ -161,7 +161,10 @@ void Jugador::mover(sf::Clock relojSprite){
     
 }
 
-void Jugador::disparar(sf::Clock reloj){
+void Jugador::disparar(){
+    
+    clock=this->getReloj();
+    cout<<"Valor inicio : "<<clock.getElapsedTime().asSeconds()<<endl;
 
     if(dispara !=0 ){
             int velx = 0;
@@ -176,41 +179,41 @@ void Jugador::disparar(sf::Clock reloj){
             switch (direccionDisparo){
                 
                 case Arriba:
-
+                    
                     cabeza.setTextureRect(sf::IntRect(5*tamSprite, 0*tamSprite, tamSprite, tamSprite));
                     // separacion entre bolas en el disparo
-                    //cout<<"antes : "<<reloj.getElapsedTime().asSeconds()<<endl;
-                    if(reloj.getElapsedTime().asSeconds() > 0.003){ 
+                    cout<<"antes : "<<clock.getElapsedTime().asSeconds()<<endl;
+                    if(clock.getElapsedTime().asSeconds() > 0.3){ 
                         // creamos una nueva bala y la metemos en el vector
                         balas.push_back(new Bala(x,y-30,velx,-3,rangoDisparo));
-                        reloj.restart(); 
-                        //cout<<"reinicio : "<<reloj.getElapsedTime().asSeconds()<<endl;
+                        clock.restart(); 
+                        cout<<"reinicio : "<<clock.getElapsedTime().asSeconds()<<endl;
                         
                     }
                 break;
                 
                 case Abajo:
                     cabeza.setTextureRect(sf::IntRect(1*tamSprite, 0*tamSprite, tamSprite, tamSprite));
-                    if(reloj.getElapsedTime().asSeconds() > 0.003){
+                    if(clock.getElapsedTime().asSeconds() > 0.3){
                         balas.push_back(new Bala(x,y+50,velx,3,rangoDisparo));
-                        reloj.restart();
+                        clock.restart();
                     }
                 break;
                 case Decha:
                     cabeza.setTextureRect(sf::IntRect(2*tamSprite, 0*tamSprite, tamSprite, tamSprite)); 
                     cabeza.setScale(escala,escala);
-                    if(reloj.getElapsedTime().asSeconds() > 0.003){
+                    if(clock.getElapsedTime().asSeconds() > 0.3){
                         balas.push_back(new Bala(x+35,y,3,vely,rangoDisparo));
-                        reloj.restart();
+                        clock.restart();
                     }
                 break;
                 case Izda:
                     cabeza.setTextureRect(sf::IntRect(2*tamSprite, 0*tamSprite, tamSprite, tamSprite));
                     //Reflejo vertical
                     cabeza.setScale(-escala,escala);
-                    if(reloj.getElapsedTime().asSeconds() > 0.003){
+                    if(clock.getElapsedTime().asSeconds() > 0.3){
                         balas.push_back(new Bala(x-35,y,-3,vely,rangoDisparo));
-                        reloj.restart();
+                        clock.restart();
                     }
                 break;
             }
@@ -230,15 +233,13 @@ void Jugador::disparar(sf::Clock reloj){
     
     // pintamos las balas
     Motor2D*motor2D = Motor2D::Instance();
-    reloj.restart();
         for(int i = 0 ; i<balas.size(); i++){
             if(balas.at(i)){
                 
                 motor2D->pintarSprites(balas.at(i)->getSprite()); 
                 
             }
-        }
-    
+        } 
     pintar();
     
     }
@@ -256,3 +257,6 @@ void Jugador::setFlagA(bool f){leftFlag = f;}
 void Jugador::setFlagW(bool f){upFlag = f;}
 void Jugador::setFlagD(bool f){rightFlag = f;}
 void Jugador::setFlagS(bool f){downFlag = f;}
+
+
+sf::Clock Jugador::getReloj(){return clock;}
