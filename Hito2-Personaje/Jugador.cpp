@@ -179,7 +179,7 @@ void Jugador::disparar(sf::Clock reloj){
 
                     cabeza.setTextureRect(sf::IntRect(5*tamSprite, 0*tamSprite, tamSprite, tamSprite));
                     // separacion entre bolas en el disparo
-                    if(reloj.getElapsedTime().asSeconds() > 5){
+                    if(reloj.getElapsedTime().asSeconds() > 0.3){
                         cout<<"antes : "<<reloj.getElapsedTime().asSeconds()<<endl;
                         // creamos una nueva bala y la metemos en el vector
                         balas.push_back(new Bala(x,y-30,velx,-3,rangoDisparo));
