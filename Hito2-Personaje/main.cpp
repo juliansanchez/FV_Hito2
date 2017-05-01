@@ -11,6 +11,7 @@
 #include "Motor2D.h"
 #include "Jugador.h"
 #include "config.h"
+#include "Modificador.h"
 
 // Sprite speed (high values = high speed)
 #define SPRITE_SPEED  2
@@ -42,7 +43,8 @@ int main()
     int x = window.getSize().x/2;
     int y = window.getSize().y/2;
 
-    Jugador *player = new Jugador(x, y);  
+    Jugador *player = new Jugador(x, y+150);  // posicion de inicio partida
+    Modificador *seta = new Modificador(x,y);
          
     sf::Clock reloj; // reloj para el disparo 
     sf::Clock relojSprite; // para la animacion PIERNAS personaje
@@ -106,8 +108,10 @@ int main()
         }
 
        // actualizamos posiciones de los sprites
+       seta->pintar();
        player->mover(relojSprite);
        player->disparar();
+       
         // Actualizar mostrar por pantalla
        motor2D->pintarVentana();
       

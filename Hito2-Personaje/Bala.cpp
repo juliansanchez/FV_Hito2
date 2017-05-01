@@ -38,6 +38,7 @@ Bala::Bala(int x,int y,int velx, int vely, float rangoDisparo) {
     // fijar centroide
     sprite.setOrigin(16,16); 
     sprite.setScale(0.5,0.5);
+    
 }
 
 Bala::~Bala() {}

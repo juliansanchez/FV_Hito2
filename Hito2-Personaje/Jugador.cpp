@@ -164,8 +164,7 @@ void Jugador::mover(sf::Clock relojSprite){
 void Jugador::disparar(){
     
     clock=this->getReloj();
-    cout<<"Valor inicio : "<<clock.getElapsedTime().asSeconds()<<endl;
-
+   
     if(dispara !=0 ){
             int velx = 0;
             int vely = 0;
@@ -182,12 +181,12 @@ void Jugador::disparar(){
                     
                     cabeza.setTextureRect(sf::IntRect(5*tamSprite, 0*tamSprite, tamSprite, tamSprite));
                     // separacion entre bolas en el disparo
-                    cout<<"antes : "<<clock.getElapsedTime().asSeconds()<<endl;
+                    // cout<<"antes : "<<clock.getElapsedTime().asSeconds()<<endl;
                     if(clock.getElapsedTime().asSeconds() > 0.3){ 
                         // creamos una nueva bala y la metemos en el vector
                         balas.push_back(new Bala(x,y-30,velx,-3,rangoDisparo));
                         clock.restart(); 
-                        cout<<"reinicio : "<<clock.getElapsedTime().asSeconds()<<endl;
+                        // cout<<"reinicio : "<<clock.getElapsedTime().asSeconds()<<endl;
                         
                     }
                 break;
