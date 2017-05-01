@@ -43,6 +43,7 @@ public:
     int getY();
     int getX();
     void aumentarVelocidad();
+    void anyadirBomba();
     
     
     
@@ -68,6 +69,7 @@ private:
     
     // ATRIBUTOS
     float SPRITE_SPEED;
+    int numBombas;
     
     void animacioncaminar(sf::Clock relojSprite);
     void actualizarSprite ();

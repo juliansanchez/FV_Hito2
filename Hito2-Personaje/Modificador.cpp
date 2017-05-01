@@ -36,6 +36,29 @@ Modificador::Modificador(int x, int y) {
     
 }
 
+Modificador::Modificador(int x, int y, sf::Clock relojBomba) {
+    colision = false;
+    tamSprite = 32;
+    radioSprite = tamSprite/2;
+    escala=1.5;
+    
+    this->x= x;
+    this->y = y;
+ 
+    if (!texture.loadFromFile("resources/bomba.png"))
+    {
+        std::cerr << "Error while loading texture modificador" << std::endl;
+    }
+    
+    modificador.setTexture(texture);
+    modificador.setOrigin(tamSprite/2,tamSprite/2);
+    modificador.setTextureRect(sf:: IntRect(0*tamSprite, 0*tamSprite, tamSprite, tamSprite));  
+    modificador.setPosition(x, y);   
+    modificador.setScale(escala,escala); 
+    
+}
+
+
 Modificador::Modificador(const Modificador& orig) {
     
 }
@@ -82,6 +105,24 @@ void Modificador::colisionObjeto(Jugador *j){
                         
             j->aumentarVelocidad();
             
+            // Esto es una chapuza, hay que eliminar el objeto
+            modificador.setTextureRect(sf:: IntRect(0*tamSprite, 0*tamSprite, 0, 0)); 
+            modificador.setPosition(0, 0);
+     
+    }
+
+}
+
+// colisiones con volumenes Bounding
+void Modificador::cogerBomba(Jugador *j){
+    
+    
+    if(!colision && (j->getX()+ 32) > this->x && (j->getY()+ 42) > this->y &&
+            (this->x +32)> j->getX() && (this->y+32) > j->getY()){
+            cout<<"Cojo la bomba"<<endl;
+            colision=true;
+                       
+            j->anyadirBomba();
             // Esto es una chapuza, hay que eliminar el objeto
             modificador.setTextureRect(sf:: IntRect(0*tamSprite, 0*tamSprite, 0, 0)); 
             modificador.setPosition(0, 0);

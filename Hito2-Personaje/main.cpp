@@ -43,11 +43,15 @@ int main()
     int x = window.getSize().x/2;
     int y = window.getSize().y/2;
 
-    Jugador *player = new Jugador(x, y+150);  // posicion de inicio partida
-    Modificador *seta = new Modificador(x,y);
-         
     sf::Clock reloj; // reloj para el disparo 
     sf::Clock relojSprite; // para la animacion PIERNAS personaje
+    
+    Jugador *player = new Jugador(x, y+150);  // posicion de inicio partida
+    
+    Modificador *seta = new Modificador(x,y/2);
+    Modificador *bomba = new Modificador(x,y,reloj);
+         
+    
     // reinicio el reloj en cada iteracion
     
     relojSprite.restart();
@@ -77,6 +81,9 @@ int main()
                 case sf::Keyboard::A: player->setFlagA(true); break;
                 case sf::Keyboard::S: player->setFlagS(true); break;
                 case sf::Keyboard::D: player->setFlagD(true); break;
+                
+                case sf::Keyboard::E: bomba = new Modificador(player->getX()+32,player->getY(),reloj);break;
+                
                 
                 // DISPAROS. Condicion de direccion de disparo 
                 case sf::Keyboard::Up: player->setDirDisparo(0); break;
@@ -109,10 +116,13 @@ int main()
 
        // actualizamos posiciones de los sprites
        seta->pintar();
+       bomba->pintar();
+       
        player->mover(relojSprite);
        player->disparar();
        
        seta->colisionObjeto(player);
+       bomba->cogerBomba(player);
          
        
         // Actualizar mostrar por pantalla

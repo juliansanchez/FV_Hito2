@@ -61,6 +61,7 @@ Jugador::Jugador(int x, int y) {
     downFlag = false;
     leftFlag = false;
     rightFlag = false;
+    numBombas = 0;
     
     crearbala();
 }
@@ -273,4 +274,8 @@ int Jugador::getY(){
 // incrementa velocidad del jugador
 void Jugador:: aumentarVelocidad(){
     SPRITE_SPEED = SPRITE_SPEED+2;
+}
+
+void Jugador:: anyadirBomba(){
+    numBombas++;
 }
