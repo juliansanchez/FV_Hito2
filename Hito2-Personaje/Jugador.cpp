@@ -179,19 +179,19 @@ void Jugador::disparar(sf::Clock reloj){
 
                     cabeza.setTextureRect(sf::IntRect(5*tamSprite, 0*tamSprite, tamSprite, tamSprite));
                     // separacion entre bolas en el disparo
-                    if(reloj.getElapsedTime().asSeconds() > 0.3){
-                        cout<<"antes : "<<reloj.getElapsedTime().asSeconds()<<endl;
+                    //cout<<"antes : "<<reloj.getElapsedTime().asSeconds()<<endl;
+                    if(reloj.getElapsedTime().asSeconds() > 0.003){ 
                         // creamos una nueva bala y la metemos en el vector
                         balas.push_back(new Bala(x,y-30,velx,-3,rangoDisparo));
-                        //reloj.restart(); 
-                        cout<<"reinicio : "<<reloj.getElapsedTime().asSeconds()<<endl;
+                        reloj.restart(); 
+                        //cout<<"reinicio : "<<reloj.getElapsedTime().asSeconds()<<endl;
                         
                     }
                 break;
                 
                 case Abajo:
                     cabeza.setTextureRect(sf::IntRect(1*tamSprite, 0*tamSprite, tamSprite, tamSprite));
-                    if(reloj.getElapsedTime().asSeconds() > 0.3){
+                    if(reloj.getElapsedTime().asSeconds() > 0.003){
                         balas.push_back(new Bala(x,y+50,velx,3,rangoDisparo));
                         reloj.restart();
                     }
@@ -199,7 +199,7 @@ void Jugador::disparar(sf::Clock reloj){
                 case Decha:
                     cabeza.setTextureRect(sf::IntRect(2*tamSprite, 0*tamSprite, tamSprite, tamSprite)); 
                     cabeza.setScale(escala,escala);
-                    if(reloj.getElapsedTime().asSeconds() > 0.3){
+                    if(reloj.getElapsedTime().asSeconds() > 0.003){
                         balas.push_back(new Bala(x+35,y,3,vely,rangoDisparo));
                         reloj.restart();
                     }
@@ -208,7 +208,7 @@ void Jugador::disparar(sf::Clock reloj){
                     cabeza.setTextureRect(sf::IntRect(2*tamSprite, 0*tamSprite, tamSprite, tamSprite));
                     //Reflejo vertical
                     cabeza.setScale(-escala,escala);
-                    if(reloj.getElapsedTime().asSeconds() > 0.3){
+                    if(reloj.getElapsedTime().asSeconds() > 0.003){
                         balas.push_back(new Bala(x-35,y,-3,vely,rangoDisparo));
                         reloj.restart();
                     }
@@ -233,10 +233,10 @@ void Jugador::disparar(sf::Clock reloj){
     reloj.restart();
         for(int i = 0 ; i<balas.size(); i++){
             if(balas.at(i)){
- 
-                motor2D->pintarSprites(balas.at(i)->getSprite());  
+                
+                motor2D->pintarSprites(balas.at(i)->getSprite()); 
+                
             }
-            
         }
     
     pintar();

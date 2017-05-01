@@ -47,12 +47,13 @@ int main()
     sf::Clock reloj; // reloj para el disparo 
     sf::Clock relojSprite; // para la animacion PIERNAS personaje
     // reinicio el reloj en cada iteracion
-    reloj.restart();
+    
     relojSprite.restart();
        
     // ::: INICIO LOOP :::
     while (window.isOpen())
     {
+        reloj.restart();
         // LIMPIAR VENTANA
         motor2D->limpiarVentana();
         // Proceso de eventos
