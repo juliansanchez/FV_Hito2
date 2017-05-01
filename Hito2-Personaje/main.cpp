@@ -82,6 +82,7 @@ int main()
                 case sf::Keyboard::S: player->setFlagS(true); break;
                 case sf::Keyboard::D: player->setFlagD(true); break;
                 
+                // chapuza crear metodo dejarBomba
                 case sf::Keyboard::E: bomba = new Modificador(player->getX()+32,player->getY(),reloj);break;
                 
                 
@@ -122,7 +123,7 @@ int main()
        player->disparar();
        
        seta->colisionObjeto(player);
-       bomba->cogerBomba(player);
+       bomba->cogerBomba(player); // compruba colision con bomba
          
        
         // Actualizar mostrar por pantalla
