@@ -15,8 +15,9 @@
 #define CONFIG_H
 
 // dimensiones de pantalla
-int altoPantalla = 540;
 int anchoPantalla = 900;
+int altoPantalla = 540;
+
 
 #endif /* CONFIG_H */
 

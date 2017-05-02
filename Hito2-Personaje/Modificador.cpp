@@ -102,7 +102,7 @@ void Modificador::colisionObjeto(Jugador *j){
             (this->x +32)> j->getX() && (this->y+32) > j->getY()){
             cout<<"Entro a colision"<<endl;
             colision=true;
-                        
+            
             j->aumentarVelocidad();
             
             // Esto es una chapuza, hay que eliminar el objeto
