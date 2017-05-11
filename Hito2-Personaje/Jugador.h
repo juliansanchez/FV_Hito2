@@ -44,6 +44,7 @@ public:
     int getX();
     void aumentarVelocidad();
     void anyadirBomba();
+    void ponerBomba();
     
     
     

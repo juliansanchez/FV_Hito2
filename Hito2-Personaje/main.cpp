@@ -50,8 +50,7 @@ int main()
     Jugador *player = new Jugador(x, y+150);  // posicion de inicio partida
     
     Modificador *seta = new Modificador(x,y/2);
-    Modificador *bomba = new Modificador(x,y,reloj);
-         
+             
     
     // reinicio el reloj en cada iteracion
     
@@ -84,7 +83,7 @@ int main()
                 case sf::Keyboard::D: player->setFlagD(true); break;
                 
                 // chapuza crear metodo dejarBomba
-                case sf::Keyboard::E: bomba = new Modificador(player->getX()+32,player->getY(),reloj);break;
+                case sf::Keyboard::E: player->ponerBomba(); break;
                 
                 
                 // DISPAROS. Condicion de direccion de disparo 
@@ -118,13 +117,13 @@ int main()
 
        // actualizamos posiciones de los sprites
        seta->pintar();
-       bomba->pintar();
+       
        
        player->mover(relojSprite);
        player->disparar();
        
        seta->colisionObjeto(player);
-       bomba->cogerBomba(player); // compruba colision con bomba
+       
          
        
         // Actualizar mostrar por pantalla

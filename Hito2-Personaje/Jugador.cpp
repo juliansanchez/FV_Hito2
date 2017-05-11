@@ -61,7 +61,7 @@ Jugador::Jugador(int x, int y) {
     downFlag = false;
     leftFlag = false;
     rightFlag = false;
-    numBombas = 0;
+    numBombas = 5;
     
     crearbala();
 }
@@ -70,6 +70,7 @@ void Jugador::crearbala(){
     // velocidad de bala
     velx = 0;
     vely = 0;
+    
     
     // distancia a la dispara 
     rangoDisparo = 1.5;  
@@ -172,6 +173,7 @@ void Jugador::disparar(){
     if(dispara !=0 ){
             int velx = 0;
             int vely = 0;
+            
             // variables para disparo diagonal 
             if (leftFlag) velx = -3;
             else if(rightFlag) velx = 3;
@@ -274,8 +276,21 @@ int Jugador::getY(){
 // incrementa velocidad del jugador
 void Jugador:: aumentarVelocidad(){
     SPRITE_SPEED = SPRITE_SPEED+2;
+   
+  
 }
 
 void Jugador:: anyadirBomba(){
     numBombas++;
 }
+
+void Jugador:: ponerBomba(){
+    if(numBombas > 0){
+        Modificador *bomba = new Modificador(x,y+40,clock);
+        bomba->pintar();
+        numBombas--;
+    }
+    
+}
+
+

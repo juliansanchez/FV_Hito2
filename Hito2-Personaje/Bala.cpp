@@ -14,8 +14,6 @@
 #include <stdio.h>
 #include <iostream>
 
-
-
 Bala::Bala(int x,int y,int velx, int vely, float rangoDisparo) {
     // posicion de inicio de la bal que coincide con jugador
     posx = x;

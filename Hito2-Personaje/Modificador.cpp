@@ -36,6 +36,7 @@ Modificador::Modificador(int x, int y) {
     
 }
 
+
 Modificador::Modificador(int x, int y, sf::Clock relojBomba) {
     colision = false;
     tamSprite = 32;
@@ -85,7 +86,7 @@ void Modificador::Modificacion(Jugador* j){
         }
         //destruir Objeto
     //}*/
-    pintar();
+    // pintar();
 }
 
 void Modificador::pintar(){
@@ -96,8 +97,7 @@ void Modificador::pintar(){
 
 // colisiones con volumenes Bounding
 void Modificador::colisionObjeto(Jugador *j){
-    
-    
+     
     if(!colision && (j->getX()+ 32) > this->x && (j->getY()+ 42) > this->y &&
             (this->x +32)> j->getX() && (this->y+32) > j->getY()){
             cout<<"Entro a colision"<<endl;
@@ -115,7 +115,6 @@ void Modificador::colisionObjeto(Jugador *j){
 
 // colisiones con volumenes Bounding
 void Modificador::cogerBomba(Jugador *j){
-    
     
     if(!colision && (j->getX()+ 32) > this->x && (j->getY()+ 42) > this->y &&
             (this->x +32)> j->getX() && (this->y+32) > j->getY()){
