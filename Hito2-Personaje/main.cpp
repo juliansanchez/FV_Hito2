@@ -49,7 +49,10 @@ int main()
     
     Jugador *player = new Jugador(x, y+150);  // posicion de inicio partida
     
-    Modificador *seta = new Modificador(x,y/2);
+    
+    // 1 para setas, 2 jeringa
+    Modificador *seta = new Modificador(x,y/2,1);
+    Modificador *jeringa = new Modificador(x/2,y/2,2);
              
     
     // reinicio el reloj en cada iteracion
@@ -117,12 +120,13 @@ int main()
 
        // actualizamos posiciones de los sprites
        seta->pintar();
-       
+       jeringa->pintar();
        
        player->mover(relojSprite);
        player->disparar();
        
        seta->colisionObjeto(player);
+       jeringa->colisionObjeto(player);
        
          
        

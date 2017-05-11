@@ -277,10 +277,7 @@ int Jugador::getY(){
     return y;
 }
 
-// incrementa velocidad del jugador
-void Jugador:: aumentarDanyo(){
-    danyo++; 
-}
+
 
 void Jugador:: anyadirBomba(){
     numBombas++;
@@ -291,12 +288,23 @@ void Jugador:: ponerBomba(){
         Modificador *bomba = new Modificador(x,y+40,clock);
         bomba->pintar();
         numBombas--;
+       
     }
-    
 }
 
-void Jugador:: aumentarVida(){
+// incrementa velocidad del jugador
+void Jugador:: aumentarDanyo(){
+    danyo++; 
+    cabeza.setColor(sf::Color::Green);
+}
+void Jugador:: aumentarVidaActual(){
     vidaActual = vidaActual+1;
+    cabeza.setColor(sf::Color::Red);
+    
+}
+void Jugador:: aumentarVida(){
+    vida = vida+1;
+    
 }
 void Jugador:: quitarVida(){
     vidaActual = vidaActual-0.5;

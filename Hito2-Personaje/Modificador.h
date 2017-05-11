@@ -21,7 +21,7 @@
 
 class Modificador {
 public:
-    Modificador(int x, int y);
+    Modificador(int x, int y, int tipo);
     Modificador(int x, int y, sf::Clock relojBomba); // segundo constructor
     Modificador(const Modificador& orig);
     virtual ~Modificador();
@@ -37,6 +37,7 @@ private:
     int x; //POSX
     int y;//POSY
     bool colision;
+    int tipo;
     
     float escala;
     

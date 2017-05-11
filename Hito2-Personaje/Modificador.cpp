@@ -14,7 +14,17 @@
 #include "Modificador.h"
 
 using namespace std;
-Modificador::Modificador(int x, int y) {
+Modificador::Modificador(int x, int y, int tipo) {
+    
+    if(tipo == 1 && texture.loadFromFile("resources/seta.png")){
+        cout<<"es una seta"<<endl;
+        this->tipo=tipo;
+    }
+    
+    if(tipo == 2 && texture.loadFromFile("resources/jeringa.png")){
+        cout<<"es una seta"<<endl;
+        this->tipo=tipo;
+    }
     colision = false;
     tamSprite = 32;
     radioSprite = tamSprite/2;
@@ -22,11 +32,6 @@ Modificador::Modificador(int x, int y) {
     
     this->x= x;
     this->y = y;
- 
-    if (!texture.loadFromFile("resources/seta.png"))
-    {
-        std::cerr << "Error while loading texture modificador" << std::endl;
-    }
     
     modificador.setTexture(texture);
     modificador.setOrigin(tamSprite/2,tamSprite/2);
@@ -36,7 +41,7 @@ Modificador::Modificador(int x, int y) {
     
 }
 
-
+// contructor por sobrecarga para la bomba
 Modificador::Modificador(int x, int y, sf::Clock relojBomba) {
     colision = false;
     tamSprite = 32;
@@ -104,7 +109,14 @@ void Modificador::colisionObjeto(Jugador *j){
             cout<<"Entro a colision"<<endl;
             colision=true;
           
-            j->aumentarDanyo();
+            if(tipo == 1){
+                j->aumentarDanyo();
+            }
+            
+            if(tipo == 2){
+                j->aumentarVida();
+                j->aumentarVidaActual();
+            }
             
             // Esto es una chapuza, hay que eliminar el objeto
             modificador.setTextureRect(sf:: IntRect(0*tamSprite, 0*tamSprite, 0, 0)); 

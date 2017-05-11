@@ -49,6 +49,7 @@ public:
     void quitarVida();
     float getVida(){return vida;};
     float getVidaActual(){return vidaActual;};
+    void aumentarVidaActual();
     
         
 private:
