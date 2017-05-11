@@ -272,8 +272,6 @@ int Jugador::getY(){
 // incrementa velocidad del jugador
 void Jugador:: aumentarVelocidad(){
     SPRITE_SPEED = SPRITE_SPEED+2;
- 
-    
 }
 
 void Jugador:: anyadirBomba(){
