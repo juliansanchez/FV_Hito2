@@ -160,6 +160,9 @@ void Jugador::mover(sf::Clock relojSprite){
 // Fijamos las posiciones de los sprites
     cabeza.setPosition(x,y);
     piernas.setPosition(x,y+(ajustePierna-2)*escala); // valor para ajustar cuerpo a cabeza
+    
+ 
+    
 }
 
 void Jugador::disparar(){
@@ -264,7 +267,6 @@ sf::Clock Jugador::getReloj(){return clock;}
 int Jugador::getX(){
     return x;
 }
-
 int Jugador::getY(){
     return y;
 }
