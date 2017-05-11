@@ -13,6 +13,7 @@
 #include "config.h"
 #include "Modificador.h"
 
+
 // Sprite speed (high values = high speed)
 #define SPRITE_SPEED  2
 using namespace std;
