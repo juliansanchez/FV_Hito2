@@ -96,19 +96,19 @@ void Modificador::pintar(){
 }
 
 // colisiones con volumenes Bounding
+// si cojo la seta aumento danyo en 1
 void Modificador::colisionObjeto(Jugador *j){
      
     if(!colision && (j->getX()+ 32) > this->x && (j->getY()+ 42) > this->y &&
             (this->x +32)> j->getX() && (this->y+32) > j->getY()){
             cout<<"Entro a colision"<<endl;
             colision=true;
-                        
-            j->aumentarVelocidad();
+          
+            j->aumentarDanyo();
             
             // Esto es una chapuza, hay que eliminar el objeto
             modificador.setTextureRect(sf:: IntRect(0*tamSprite, 0*tamSprite, 0, 0)); 
             modificador.setPosition(0, 0);
-     
     }
 
 }

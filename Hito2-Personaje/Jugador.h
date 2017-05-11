@@ -42,18 +42,22 @@ public:
     void decrementarBala();
     int getY();
     int getX();
-    void aumentarVelocidad();
+    void aumentarDanyo();
     void anyadirBomba();
     void ponerBomba();
+    void aumentarVida();
+    void quitarVida();
+    float getVida(){return vida;};
+    float getVidaActual(){return vidaActual;};
     
-    
-    
+        
 private:
     int tamSprite;
     int radioSprite;
     int ajustePierna;
     int x; //POSX
     int y;//POSY
+    float velBala;
     // para cambiar el tamaño de los sprites
     float escala;
     // variable para animar los FRAMES de piernas
@@ -71,6 +75,9 @@ private:
     // ATRIBUTOS
     float SPRITE_SPEED;
     int numBombas;
+    float vida;
+    float vidaActual;
+    int danyo;
     
     void animacioncaminar(sf::Clock relojSprite);
     void actualizarSprite ();
